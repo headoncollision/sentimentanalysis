@@ -29,7 +29,7 @@ def predict(corpus):
 
 text = str()
 
-st.title("Ravish Jha's Text Sentiment Prediction Project")
+st.title("Text Sentiment Predictor")
 st.markdown("This project predicts sentiment of the input text using a trained machine learning model")
 st.divider()
 with st.container():
