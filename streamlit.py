@@ -49,7 +49,8 @@ examples = ["The quirky script is packed with good lines and off-the-wall moment
 try:
     if load:
         text = examples[(randint(0,3))]
-        st.warning("Click on 'Predict Result'")
+        st.write(text)
+        st.warning("Copy the above text and paste it into text box. Then click on 'Predict Result'")
         if gen:
             st.success(predict(corpus))
     else:
