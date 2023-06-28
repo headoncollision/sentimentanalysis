@@ -17,6 +17,8 @@ vect = joblib.load("vectorizer.sav")
 trans = joblib.load("transformer.sav")
 enc = joblib.load("encoder.sav")
 
+@st.cache
+
 def predict(corpus):
     x = vect.transform(corpus)
     x = trans.transform(x)
