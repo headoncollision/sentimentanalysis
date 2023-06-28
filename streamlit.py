@@ -23,16 +23,17 @@ def predict(corpus):
     x = vect.transform(corpus)
     x = trans.transform(x)
     result = model.predict(x)
-    result = enc.inverse_transform(result)
+    result = enc.inverse_transform(result)[0]
     result = "Sentiment: " + str(result)
     return result
 
+text = str()
 
 st.title("Ravish Jha's Text Sentiment Prediction Project")
 st.markdown("This project predicts sentiment of the input text using a trained machine learning model")
 st.divider()
 with st.container():
-    corpus = st.text_area("Input your text")
+    corpus = st.text_area("Input your text" , )
     with st.container():
         col1 , col2 = st.columns(2)
         with col1:
@@ -47,12 +48,12 @@ examples = ["The quirky script is packed with good lines and off-the-wall moment
             "With a cast that reads like the Vogue Oscar party guest list, Valentine's Day should have been can't-miss cinema instead of standard Hollywood schmaltz."]
 try:
     if load:
-        corpus = st.text_area("Input your text" , examples[(randint(0,3))])
+        text = examples[(randint(0,3))]
         st.warning("Click on 'Predict Result'")
         if gen:
             st.success(predict(corpus))
     else:
-        if len(corpus) == 0:
+        if corpus[0] == '':
             st.error("Please enter some text")
         else:
             if gen:
